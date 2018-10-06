@@ -1,0 +1,25 @@
+<div class="grid-container">
+  <mat-grid-list cols="1" rowHeight="600px">
+    <mat-grid-tile *ngFor="let item of itemList">
+      <mat-card class="item-card">
+        <mat-card-header>
+          <mat-card-title>{{item.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{item.image}}" alt="Photo of a {{item.title}}">
+        <mat-card-content>
+          <p>{{item.description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <div id="itemDetailForm" [formGroup]="itemDetailForm">
+            <div class="row">
+              <div class="col-xs-12">
+                <input class="form-control" formControlName="email" id="email" placeholder="Please enter you email"/>
+                <button (click)="addToCart(item.title)">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
