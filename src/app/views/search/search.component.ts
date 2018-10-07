@@ -24,12 +24,12 @@ export class SearchComponent implements OnInit {
     this.route.params.subscribe(
       params => {
         this.userSearch = params['searchString'];
-    });
+      });
 
     if (this.userSearch) {
-    this.http.get('/search/?item=' + this.userSearch).subscribe(data => {
-      this.searchResult = data;
-    });
+      this.http.get('/search/?item=' + this.userSearch).subscribe(data => {
+        this.searchResult = data;
+      });
     }
   }
 

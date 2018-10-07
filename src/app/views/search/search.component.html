@@ -1,17 +1,17 @@
 <div clas="row">
   <div class="col-xs-12">
     <div class="mat-title" *ngIf="searchResult">
-        Found {{searchResult.length}} results for "{{userSearch}}"
+      Found {{searchResult.length}} results for "{{userSearch}}"
     </div>
     <div *ngIf="searchResult.length > 0">
-      <app-item [itemList]="searchResult"  [pageSize]="10" (addedToCartEvent)="addToCart($event)"></app-item>
+      <app-item [itemList]="searchResult" [pageSize]="10" (addedToCartEvent)="addToCart($event)"></app-item>
       <mat-paginator [length]="searchResult.length"
                      [pageSize]="10"
                      [pageSizeOptions]="[5, 10, 25, 100]">
       </mat-paginator>
     </div>
     <div class="mat-title" *ngIf="!searchResult">
-     No Results Found
+      No Results Found
     </div>
   </div>
 </div>

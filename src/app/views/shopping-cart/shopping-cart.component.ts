@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChange} from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/layout';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {ShoppingCartService} from '../../services/shopping-cart.service';
 
 @Component({
@@ -12,7 +12,8 @@ import {ShoppingCartService} from '../../services/shopping-cart.service';
 export class ShoppingCartComponent implements OnInit {
   @Input('cartList') cartList: string[];
 
-  constructor(private shoppingCartService: ShoppingCartService) {}
+  constructor(private shoppingCartService: ShoppingCartService) {
+  }
 
   ngOnInit() {
   }
@@ -21,4 +22,4 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.removeFromCart(item);
   }
 
-  }
+}

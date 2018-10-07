@@ -34,7 +34,7 @@ export class ItemDetailComponent implements OnInit {
       });
 
     this.http.get('/viewItem/?id=' + this.searchInteger).subscribe(data => {
-      console.log(this.searchInteger)
+      console.log(this.searchInteger);
       this.item = data;
       console.log(this.item);
     });

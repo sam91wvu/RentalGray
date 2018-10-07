@@ -8,14 +8,15 @@ import {Home} from './home-model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
   private homeForm: FormGroup;
   private home: Home = new Home();
   private search: String;
 
   constructor(private router: Router,
               private formBuilder: FormBuilder
-              ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.homeForm = this.formBuilder.group({

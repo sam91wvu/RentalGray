@@ -1,7 +1,6 @@
-
-import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { ShoppingCartComponent } from './shopping-cart.component';
+import {fakeAsync, ComponentFixture, TestBed} from '@angular/core/testing';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {ShoppingCartComponent} from './shopping-cart.component';
 
 describe('ShoppingCartComponent', () => {
   let component: ShoppingCartComponent;
@@ -12,7 +11,7 @@ describe('ShoppingCartComponent', () => {
       imports: [MatSidenavModule],
       declarations: [ShoppingCartComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ShoppingCartComponent);
     component = fixture.componentInstance;

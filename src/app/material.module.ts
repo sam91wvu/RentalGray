@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
 import {
   MatButtonModule,
@@ -13,8 +13,7 @@ import {
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports: [
-  ],
+  imports: [],
   exports: [
     MatToolbarModule,
     MatSidenavModule,
@@ -30,7 +29,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
   ]
 })
-export class MaterialModule {}
+export class MaterialModule {
+}
 
 /*
     MatButtonModule,

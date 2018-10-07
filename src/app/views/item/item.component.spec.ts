@@ -1,7 +1,6 @@
-
-import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { ItemComponent } from './item-detail.component';
+import {fakeAsync, ComponentFixture, TestBed} from '@angular/core/testing';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {ItemComponent} from './item-detail.component';
 
 describe('ItemComponent', () => {
   let component: ItemComponent;
@@ -12,7 +11,7 @@ describe('ItemComponent', () => {
       imports: [MatSidenavModule],
       declarations: [ItemComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ItemComponent);
     component = fixture.componentInstance;
