@@ -2,7 +2,9 @@
   <div class="col-xs-12">
     <div class="mat-title" *ngIf="searchResult">
         Found {{searchResult.length}} results for "{{userSearch}}"
-        <app-item [itemList]="searchResult"  [pageSize]="10" (addedToCartEvent)="addToCart($event)"></app-item>
+    </div>
+    <div *ngIf="searchResult.length > 0">
+      <app-item [itemList]="searchResult"  [pageSize]="10" (addedToCartEvent)="addToCart($event)"></app-item>
       <mat-paginator [length]="searchResult.length"
                      [pageSize]="10"
                      [pageSizeOptions]="[5, 10, 25, 100]">
