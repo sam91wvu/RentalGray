@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 {
   "/": {
     "target": "http://localhost:8080",
     "secure": false
   }
 }
+=======
+{
+  "/": {
+    "target": "http://localhost:8080",
+    "secure": false
+  }
+}
+>>>>>>> 128879183396efddc1487d2d7914a51971560295
