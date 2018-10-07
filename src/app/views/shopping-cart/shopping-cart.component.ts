@@ -1,7 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChange} from '@angular/core';
-import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/layout';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {Component, Input, OnInit} from '@angular/core';
 import {ShoppingCartService} from '../../services/shopping-cart.service';
 
 @Component({

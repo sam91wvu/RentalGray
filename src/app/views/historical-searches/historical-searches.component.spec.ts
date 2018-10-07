@@ -1,19 +1,19 @@
 import {fakeAsync, ComponentFixture, TestBed} from '@angular/core/testing';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {ItemComponent} from './item.component';
+import {HistoricalSearchesComponent} from './historical-searches.component';
 
-describe('ItemComponent', () => {
-  let component: ItemComponent;
-  let fixture: ComponentFixture<ItemComponent>;
+describe('HistoricalSearchesComponent', () => {
+  let component: HistoricalSearchesComponent;
+  let fixture: ComponentFixture<HistoricalSearchesComponent>;
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
       imports: [MatSidenavModule],
-      declarations: [ItemComponent]
+      declarations: [HistoricalSearchesComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(ItemComponent);
+    fixture = TestBed.createComponent(HistoricalSearchesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

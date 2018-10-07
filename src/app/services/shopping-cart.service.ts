@@ -20,7 +20,7 @@ export class ShoppingCartService {
     }
   }
 
-  getShoppingCart(){
+  getShoppingCart() {
    return this.userCart;
   }
 }

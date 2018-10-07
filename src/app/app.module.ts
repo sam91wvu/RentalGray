@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ShoppingCartComponent} from './views/shopping-cart/shopping-cart.component';
 import {ItemComponent} from './views/item/item.component';
 import {ItemDetailComponent} from './views/item-detail/item-detail.component';
+import {HistoricalSearchesComponent} from './views/historical-searches/historical-searches.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {ItemDetailComponent} from './views/item-detail/item-detail.component';
     SearchComponent,
     ItemDetailComponent,
     ShoppingCartComponent,
-    ItemComponent
+    ItemComponent,
+    HistoricalSearchesComponent
   ],
   imports: [
     BrowserModule,
