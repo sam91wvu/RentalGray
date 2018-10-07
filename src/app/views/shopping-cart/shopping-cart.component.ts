@@ -19,7 +19,6 @@ export class ShoppingCartComponent implements OnInit {
 
   removeFromCart(item) {
     this.shoppingCartService.removeFromCart(item);
-    console.log('After removing ' + item + ' from the cart, the cart currently contains: ' + this.cartList);
   }
 
   }

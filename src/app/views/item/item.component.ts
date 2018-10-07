@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-item',
@@ -16,7 +15,6 @@ export class ItemComponent {
   }
 
   ngOnInit() {
-   console.log(this.pageSize)
   }
 
   sendToCart(item) {
