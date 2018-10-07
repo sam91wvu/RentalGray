@@ -1,8 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ItemDetailMenu} from './item-detail-menu.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-item-detail',
@@ -11,12 +9,12 @@ import {map} from 'rxjs/operators';
 })
 export class ItemDetailComponent implements OnInit {
   @Input('itemList') itemList: Object;
+  @Output() addedToCartEvent: EventEmitter<string> = new EventEmitter<string>();
   private itemDetailForm: FormGroup;
   private itemDetailMenu: ItemDetailMenu = new ItemDetailMenu();
-  private cart = [];
+  private selectedItem: string;
 
-  constructor(private formBuilder: FormBuilder,
-              private breakpointObserver: BreakpointObserver) {
+  constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
@@ -31,10 +29,10 @@ export class ItemDetailComponent implements OnInit {
     );
   }
 
-  addToCart(item) {
-    this.cart.push(item);
+  sendToCart(item) {
+    this.selectedItem = item;
+    this.addedToCartEvent.emit(this.selectedItem);
   }
-
 
 
 }

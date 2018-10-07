@@ -12,6 +12,10 @@ const appRoutes: Routes = [
     path: 'search/:searchString',
     component: SearchComponent
   },
+  {
+    path: '**',
+    component: HomeComponent
+  },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, {enableTracing: false});
