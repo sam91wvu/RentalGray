@@ -5,10 +5,10 @@
     </div>
     <div *ngIf="searchResult && searchResult.length > 0">
       <app-item [itemList]="searchResult" [pageSize]="10" (addedToCartEvent)="addToCart($event)"></app-item>
-      <mat-paginator [length]="searchResult.length"
+<!--      <mat-paginator [length]="searchResult.length"
                      [pageSize]="10"
                      [pageSizeOptions]="[5, 10, 25, 100]">
-      </mat-paginator>
+      </mat-paginator>-->
     </div>
     <div class="mat-title" *ngIf="!searchResult">
       No Results Found
