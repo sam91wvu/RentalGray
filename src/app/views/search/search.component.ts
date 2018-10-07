@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {ShoppingCartService} from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,8 @@ export class SearchComponent implements OnInit {
   private userSelectedItem: string;
 
   constructor(private route: ActivatedRoute,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private shoppingCartService: ShoppingCartService) {
   }
 
   ngOnInit() {
@@ -34,7 +36,7 @@ export class SearchComponent implements OnInit {
 
   addToCart($event) {
     this.userSelectedItem = $event.toString();
-    this.userCart.push(this.userSelectedItem);
-    console.log('After adding ' + this.userSelectedItem + ' to the cart, the cart currently contains: ' + this.userCart);
+    this.shoppingCartService.addToCart(this.userSelectedItem);
+    console.log('User added an item to the cart: ' + this.userSelectedItem);
   }
 }

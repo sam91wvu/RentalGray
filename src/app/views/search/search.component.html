@@ -2,7 +2,7 @@
   <div class="col-xs-12">
     <div class="mat-title" *ngIf="searchResult">
         Found {{searchResult.length}} results for "{{userSearch}}"
-        <app-item-detail [itemList]="searchResult" (addedToCartEvent)="addToCart($event)"></app-item-detail>
+        <app-item [itemList]="searchResult" (addedToCartEvent)="addToCart($event)"></app-item>
     </div>
     <div class="mat-title" *ngIf="!searchResult">
      No Results Found

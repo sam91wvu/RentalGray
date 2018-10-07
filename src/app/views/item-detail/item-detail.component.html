@@ -1,6 +1,6 @@
-<div class="grid-container">
+<div class="grid-container" *ngIf="item">
   <mat-grid-list cols="1" rowHeight="600px">
-    <mat-grid-tile *ngFor="let item of itemList">
+    <mat-grid-tile>
       <mat-card class="item-card">
         <mat-card-header>
           <mat-card-title>{{item.title}}</mat-card-title>

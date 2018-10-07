@@ -1,7 +1,8 @@
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from './home/home.component';
-import {SearchComponent} from './search/search.component';
+import {HomeComponent} from './views/home/home.component';
+import {SearchComponent} from './views/search/search.component';
 import {ModuleWithProviders} from '@angular/core';
+import {ItemDetailComponent} from './views/item-detail/item-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -11,6 +12,10 @@ const appRoutes: Routes = [
   {
     path: 'search/:searchString',
     component: SearchComponent
+  },
+  {
+    path: 'view/:item',
+    component: ItemDetailComponent
   },
   {
     path: '**',

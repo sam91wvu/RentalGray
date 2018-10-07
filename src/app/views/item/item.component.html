@@ -1,0 +1,21 @@
+<div class="grid-container">
+  <mat-grid-list cols="1" rowHeight="500px">
+    <mat-grid-tile *ngFor="let item of itemList">
+      <mat-card class="item-card">
+        <div [routerLink]="['/view/', item.title]">
+          <mat-card-header>
+            <mat-card-title>{{item.title}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="{{item.image}}" alt="Photo of a {{item.title}}">
+        </div>
+        <mat-card-actions>
+          <div class="row">
+            <div class="col-xs-12">
+              <button (click)="sendToCart(item.title)">Add to Cart</button>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

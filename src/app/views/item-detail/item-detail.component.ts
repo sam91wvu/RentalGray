@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ItemDetailMenu} from './item-detail-menu.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {ShoppingCartService} from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-item-detail',
@@ -12,12 +15,29 @@ export class ItemDetailComponent implements OnInit {
   @Output() addedToCartEvent: EventEmitter<string> = new EventEmitter<string>();
   private itemDetailForm: FormGroup;
   private itemDetailMenu: ItemDetailMenu = new ItemDetailMenu();
+  private searchString: string;
+  private item: Object;
   private selectedItem: string;
+  private cart: string[];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private route: ActivatedRoute,
+              private http: HttpClient,
+              private shoppingCartService: ShoppingCartService) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      params => {
+        this.searchString = params['item'];
+        console.log(this.searchString);
+      });
+
+    this.http.get('/viewItem/?item=' + this.searchString).subscribe(data => {
+      this.item = data;
+      console.log(this.item);
+    });
+
     this.itemDetailForm = this.formBuilder.group({
       'email': this.itemDetailMenu.email
     });
@@ -30,8 +50,11 @@ export class ItemDetailComponent implements OnInit {
   }
 
   sendToCart(item) {
+    this.cart = this.shoppingCartService.getShoppingCart();
     this.selectedItem = item;
     this.addedToCartEvent.emit(this.selectedItem);
+    this.shoppingCartService.addToCart(item);
+    console.log('After adding ' + item + ' to the cart, the cart currently contains: ' + this.cart);
   }
 
 

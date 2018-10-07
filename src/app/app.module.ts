@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
-import {HomeComponent} from './home/home.component';
-import {SearchComponent} from './search/search.component';
+import {HomeComponent} from './views/home/home.component';
+import {SearchComponent} from './views/search/search.component';
 import { routing } from './app.routing';
 import {ReactiveFormsModule} from '@angular/forms';
-import {ItemDetailComponent} from './item-detail/item-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
+import {ShoppingCartComponent} from './views/shopping-cart/shopping-cart.component';
+import {ItemComponent} from './views/item/item.component';
+import {ItemDetailComponent} from './views/item-detail/item-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {ShoppingCartComponent} from './shopping-cart/shopping-cart.component';
     HomeComponent,
     SearchComponent,
     ItemDetailComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
