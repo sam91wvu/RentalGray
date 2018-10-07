@@ -44,7 +44,4 @@ export class SearchComponent implements OnInit {
     this.shoppingCartService.addToCart(this.userSelectedItem);
   }
 
-  getSearches() {
-    console.log(this.searchService.getStoredSearches());
-  }
 }

@@ -5,8 +5,8 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Previous Searches</mat-toolbar>
-    <mat-nav-list *ngFor="let search of userSearches ">
-      <a mat-list-item>{{search}}</a>
+    <mat-nav-list *ngFor="let search of manipulatedUserSearches ">
+      <a mat-list-item>{{search.date}}</a>
     </mat-nav-list>
   </mat-sidenav>
 </mat-sidenav-container>

@@ -8,11 +8,14 @@ import {SearchService} from '../../services/search.service';
 })
 export class HistoricalSearchesComponent implements OnInit {
   private userSearches: any[];
+  private manipulatedUserSearches: string;
+  private test3: string;
   constructor(private searchService: SearchService) {
   }
 
   ngOnInit() {
     this.userSearches = this.searchService.getStoredSearches();
+    this.manipulatedUserSearches = JSON.stringify(this.userSearches);
+    this.manipulatedUserSearches = JSON.parse(this.manipulatedUserSearches);
   }
-
 }
