@@ -2,7 +2,7 @@
   <mat-grid-list cols="1" rowHeight="500px">
     <mat-grid-tile *ngFor="let item of itemList">
       <mat-card class="item-card">
-        <div [routerLink]="['/view/', item.title]">
+        <div [routerLink]="['/view/', item.id]">
           <mat-card-header>
             <mat-card-title>{{item.title}}</mat-card-title>
           </mat-card-header>

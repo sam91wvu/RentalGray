@@ -15,7 +15,7 @@ export class ItemDetailComponent implements OnInit {
   @Output() addedToCartEvent: EventEmitter<string> = new EventEmitter<string>();
   private itemDetailForm: FormGroup;
   private itemDetailMenu: ItemDetailMenu = new ItemDetailMenu();
-  private searchString: string;
+  private searchInteger: number;
   private item: Object;
   private selectedItem: string;
   private userCart: string[];
@@ -30,11 +30,13 @@ export class ItemDetailComponent implements OnInit {
     this.userCart = this.shoppingCartService.getShoppingCart();
     this.route.params.subscribe(
       params => {
-        this.searchString = params['item'];
+        this.searchInteger = params['item'];
       });
 
-    this.http.get('/viewItem/?item=' + this.searchString).subscribe(data => {
+    this.http.get('/viewItem/?id=' + this.searchInteger).subscribe(data => {
+      console.log(this.searchInteger)
       this.item = data;
+      console.log(this.item);
     });
 
     this.itemDetailForm = this.formBuilder.group({
