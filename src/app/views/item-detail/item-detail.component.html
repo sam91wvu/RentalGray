@@ -23,3 +23,8 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+<div clas="row" *ngIf="userCart.length > 0">
+  <div class="col-xs-12">
+    <app-shopping-cart [cartList]="userCart"></app-shopping-cart>
+  </div>
+</div>

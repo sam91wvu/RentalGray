@@ -36,6 +36,7 @@ export class SearchComponent implements OnInit {
 
   addToCart($event) {
     this.userSelectedItem = $event.toString();
+    this.userCart = this.shoppingCartService.getShoppingCart();
     this.shoppingCartService.addToCart(this.userSelectedItem);
     console.log('User added an item to the cart: ' + this.userSelectedItem);
   }

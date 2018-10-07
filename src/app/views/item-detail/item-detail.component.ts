@@ -18,7 +18,7 @@ export class ItemDetailComponent implements OnInit {
   private searchString: string;
   private item: Object;
   private selectedItem: string;
-  private cart: string[];
+  private userCart: string[];
 
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
@@ -27,6 +27,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userCart = this.shoppingCartService.getShoppingCart();
     this.route.params.subscribe(
       params => {
         this.searchString = params['item'];
@@ -50,11 +51,11 @@ export class ItemDetailComponent implements OnInit {
   }
 
   sendToCart(item) {
-    this.cart = this.shoppingCartService.getShoppingCart();
+    this.userCart = this.shoppingCartService.getShoppingCart();
     this.selectedItem = item;
     this.addedToCartEvent.emit(this.selectedItem);
     this.shoppingCartService.addToCart(item);
-    console.log('After adding ' + item + ' to the cart, the cart currently contains: ' + this.cart);
+    console.log('After adding ' + item + ' to the cart, the cart currently contains: ' + this.userCart);
   }
 
 
