@@ -6,6 +6,7 @@ import {
   MatGridListModule,
   MatIconModule,
   MatListModule,
+  MatPaginatorModule,
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
@@ -24,6 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatGridListModule,
     MatSidenavModule,
     MatListModule,
+    MatPaginatorModule,
     BrowserAnimationsModule
 
   ]

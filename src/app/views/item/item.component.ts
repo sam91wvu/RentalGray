@@ -8,13 +8,16 @@ import {FormBuilder} from '@angular/forms';
 })
 export class ItemComponent {
   @Input('itemList') itemList: Object;
+  @Input('pageSize') pageSize: number;
   @Output() addedToCartEvent: EventEmitter<string> = new EventEmitter<string>();
   private selectedItem: string;
 
   constructor() {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+   console.log(this.pageSize)
+  }
 
   sendToCart(item) {
     this.selectedItem = item;

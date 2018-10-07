@@ -29,7 +29,6 @@ export class SearchComponent implements OnInit {
     if (this.userSearch) {
     this.http.get('/search/?item=' + this.userSearch).subscribe(data => {
       this.searchResult = data;
-      console.log(this.searchResult);
     });
     }
   }
@@ -38,6 +37,5 @@ export class SearchComponent implements OnInit {
     this.userSelectedItem = $event.toString();
     this.userCart = this.shoppingCartService.getShoppingCart();
     this.shoppingCartService.addToCart(this.userSelectedItem);
-    console.log('User added an item to the cart: ' + this.userSelectedItem);
   }
 }

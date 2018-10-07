@@ -31,12 +31,10 @@ export class ItemDetailComponent implements OnInit {
     this.route.params.subscribe(
       params => {
         this.searchString = params['item'];
-        console.log(this.searchString);
       });
 
     this.http.get('/viewItem/?item=' + this.searchString).subscribe(data => {
       this.item = data;
-      console.log(this.item);
     });
 
     this.itemDetailForm = this.formBuilder.group({
@@ -55,7 +53,6 @@ export class ItemDetailComponent implements OnInit {
     this.selectedItem = item;
     this.addedToCartEvent.emit(this.selectedItem);
     this.shoppingCartService.addToCart(item);
-    console.log('After adding ' + item + ' to the cart, the cart currently contains: ' + this.userCart);
   }
 
 

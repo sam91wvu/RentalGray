@@ -5,19 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class ShoppingCartService {
    userCart = [];
+   found: number;
    item: string;
 
   addToCart(item: string) {
     this.userCart.push(item);
-    console.log("this is in the service " + this.userCart)
   }
 
   removeFromCart(item: string) {
-    this.userCart.push(item);
+     this.found = this.userCart.indexOf(item);
+
+    if ( this.found !== -1) {
+      this.userCart.splice( this.found, 1);
+    }
   }
 
   getShoppingCart(){
-    console.log("this is in the service - retreive " + this.userCart)
    return this.userCart;
   }
 }
