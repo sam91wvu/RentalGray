@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {ItemDetailMenu} from '../item-detail/item-detail-menu.model';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-item',
@@ -12,7 +11,7 @@ export class ItemComponent {
   @Output() addedToCartEvent: EventEmitter<string> = new EventEmitter<string>();
   private selectedItem: string;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor() {
   }
 
   ngOnInit() {}

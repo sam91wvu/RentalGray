@@ -2,9 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Home} from './home-model';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-home',
