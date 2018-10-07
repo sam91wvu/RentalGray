@@ -22,6 +22,6 @@
 </div>
 <div clas="row" *ngIf="userSearches.length > 0 && userCart.length <= 0 ">
   <div class="col-xs-12">
-  <app-historical-searches></app-historical-searches>
+  <app-historical-searches (runSearchEvent)="runSearch($event)"></app-historical-searches>
   </div>
 </div>

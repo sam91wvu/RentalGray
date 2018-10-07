@@ -33,9 +33,16 @@ export class SearchComponent implements OnInit {
     if (this.userSearch) {
       this.http.get('/search/?item=' + this.userSearch).subscribe(data => {
         this.searchResult = data;
-        this.searchService.storeSeachResult(new Date(), this.searchResult);
+        this.searchService.storeSeachResult(new Date(), this.searchResult, this.userSearch);
       });
     }
+  }
+
+  runSearch(searchString) {
+    this.http.get('/search/?item=' + searchString).subscribe(data => {
+      this.searchResult = data;
+    });
+    this.userSearch = searchString;
   }
 
   addToCart($event) {

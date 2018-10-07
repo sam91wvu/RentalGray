@@ -8,8 +8,8 @@ export class SearchService {
   searchResults = [];
   currentSearch: Search = new Search();
 
-  storeSeachResult(date: Date, searchResult: Object) {
-    this.currentSearch = new Search(date, searchResult);
+  storeSeachResult(date: Date, searchResult: Object, userSearch: string) {
+    this.currentSearch = new Search(date, searchResult, userSearch);
     this.searchResults.push(this.currentSearch);
   }
 
