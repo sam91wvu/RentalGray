@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
     if (this.userSearch) {
       this.http.get('/search/?item=' + this.userSearch).subscribe(data => {
         this.searchResult = JSON.parse(JSON.stringify(data));
-        this.searchService.storeSeachResult(new Date(), this.searchResult, this.userSearch);
+        this.searchService.storeSearchResult(new Date(), this.searchResult, this.userSearch);
       });
     }
   }

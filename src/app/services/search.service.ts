@@ -10,7 +10,7 @@ export class SearchService {
 
   constructor() {}
 
-  storeSeachResult(date: Date, searchResult: Object, userSearch: string) {
+  storeSearchResult(date: Date, searchResult: Object, userSearch: string) {
     let found = false;
     this.currentSearch = new Search(date, searchResult, userSearch);
     this.searchResults.forEach( object => {
