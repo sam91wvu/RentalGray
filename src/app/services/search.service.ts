@@ -1,23 +1,30 @@
 import { Injectable } from '@angular/core';
 import {Search} from '../views/search/search.model';
-import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SearchService {
   searchResults = [];
-  item: Object;
   currentSearch: Search = new Search();
 
   constructor() {}
 
   storeSeachResult(date: Date, searchResult: Object, userSearch: string) {
+    let found = false;
     this.currentSearch = new Search(date, searchResult, userSearch);
-    this.searchResults.push(this.currentSearch);
+    this.searchResults.forEach( object => {
+     if (this.currentSearch.searchString === object.searchString) {
+       found = true;
+     }
+    });
+    if (found === false) {
+      this.searchResults.push(this.currentSearch);
+    }
   }
 
   getStoredSearches() {
     return this.searchResults;
   }
+
 }

@@ -8,8 +8,8 @@ import {SearchService} from '../../services/search.service';
 })
 export class HistoricalSearchesComponent implements OnInit {
   private userSearches: any[];
-  private manipulatedUserSearches: string;
-  private searchString: string;
+  public manipulatedUserSearches: string;
+  public searchString: string;
   @Output() runSearchEvent: EventEmitter<string> = new EventEmitter<string>();
   constructor(private searchService: SearchService) {
   }

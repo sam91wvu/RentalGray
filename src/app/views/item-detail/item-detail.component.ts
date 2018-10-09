@@ -4,7 +4,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {ShoppingCartService} from '../../services/shopping-cart.service';
-import {SearchService} from '../../services/search.service';
 
 @Component({
   selector: 'app-item-detail',
@@ -24,8 +23,7 @@ export class ItemDetailComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
               private http: HttpClient,
-              private shoppingCartService: ShoppingCartService,
-              private searchService: SearchService) {
+              private shoppingCartService: ShoppingCartService) {
   }
 
   ngOnInit() {
@@ -36,9 +34,7 @@ export class ItemDetailComponent implements OnInit {
       });
 
     this.http.get('/viewItem/?id=' + this.searchInteger).subscribe(data => {
-      console.log(this.searchInteger);
       this.item = data;
-      console.log(this.item);
     });
 
     this.itemDetailForm = this.formBuilder.group({

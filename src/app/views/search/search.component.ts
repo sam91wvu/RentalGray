@@ -11,7 +11,7 @@ import {SearchService} from '../../services/search.service';
 })
 export class SearchComponent implements OnInit {
   private userSearch: string;
-  private searchResult: object;
+  public searchResult: any[];
   private userCart: string[];
   private userSearches: string[];
   private userSelectedItem: string
@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit {
 
     if (this.userSearch) {
       this.http.get('/search/?item=' + this.userSearch).subscribe(data => {
-        this.searchResult = data;
+        this.searchResult = JSON.parse(JSON.stringify(data));
         this.searchService.storeSeachResult(new Date(), this.searchResult, this.userSearch);
       });
     }
@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
 
   runSearch(searchString) {
     this.http.get('/search/?item=' + searchString).subscribe(data => {
-      this.searchResult = data;
+      this.searchResult = JSON.parse(JSON.stringify(data));
     });
     this.userSearch = searchString;
   }

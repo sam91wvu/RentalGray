@@ -9,8 +9,8 @@ import {Home} from './home-model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private homeForm: FormGroup;
-  private home: Home = new Home();
+  public homeForm: FormGroup;
+  public home: Home = new Home();
   private search: String;
 
   constructor(private router: Router,
