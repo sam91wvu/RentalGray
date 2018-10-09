@@ -4,11 +4,9 @@
       Found {{searchResult.length}} results for "{{userSearch}}"
     </div>
     <div *ngIf="searchResult && searchResult.length > 0">
-      <app-item [itemList]="searchResult" [pageSize]="10" (addedToCartEvent)="addToCart($event)"></app-item>
-<!--      <mat-paginator [length]="searchResult.length"
-                     [pageSize]="10"
-                     [pageSizeOptions]="[5, 10, 25, 100]">
-      </mat-paginator>-->
+      <app-item [itemList]="activePageDataChunk" [pageSize]="10" (addedToCartEvent)="addToCart($event)"></app-item>
+      <mat-paginator [length]="searchResult.length" [pageSize]="10" [pageSizeOptions]="[1, 5, 10, 25, 100]" (page)="onPageChanged($event)">
+      </mat-paginator>
     </div>
     <div class="mat-title" *ngIf="!searchResult">
       No Results Found

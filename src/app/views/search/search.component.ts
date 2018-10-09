@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {ShoppingCartService} from '../../services/shopping-cart.service';
 import {SearchService} from '../../services/search.service';
+import {PageEvent} from '@angular/material';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,8 @@ export class SearchComponent implements OnInit {
   public searchResult: any[];
   private userCart: string[];
   private userSearches: string[];
-  private userSelectedItem: string
+  private userSelectedItem: string;
+  public activePageDataChunk: any[];
 
   constructor(private route: ActivatedRoute,
               private http: HttpClient,
@@ -33,6 +35,7 @@ export class SearchComponent implements OnInit {
     if (this.userSearch) {
       this.http.get('/search/?item=' + this.userSearch).subscribe(data => {
         this.searchResult = JSON.parse(JSON.stringify(data));
+        this.activePageDataChunk = JSON.parse(JSON.stringify(data));
         this.searchService.storeSearchResult(new Date(), this.searchResult, this.userSearch);
       });
     }
@@ -40,6 +43,7 @@ export class SearchComponent implements OnInit {
 
   runSearch(searchString) {
     this.http.get('/search/?item=' + searchString).subscribe(data => {
+      this.activePageDataChunk = JSON.parse(JSON.stringify(data));
       this.searchResult = JSON.parse(JSON.stringify(data));
     });
     this.userSearch = searchString;
@@ -50,5 +54,12 @@ export class SearchComponent implements OnInit {
     this.userCart = this.shoppingCartService.getShoppingCart();
     this.shoppingCartService.addToCart(this.userSelectedItem);
   }
+
+  onPageChanged(e) {
+    let firstCut = e.pageIndex * e.pageSize;
+    let secondCut = firstCut + e.pageSize;
+    this.activePageDataChunk = this.searchResult.slice(firstCut, secondCut);
+  }
+
 
 }
