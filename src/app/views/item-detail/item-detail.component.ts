@@ -35,7 +35,11 @@ export class ItemDetailComponent implements OnInit {
         this.searchInteger = params['item'];
       });
 
-    this.item = this.searchService.searchByItemId(this.searchInteger);
+    this.http.get('/viewItem/?id=' + this.searchInteger).subscribe(data => {
+      console.log(this.searchInteger);
+      this.item = data;
+      console.log(this.item);
+    });
 
     this.itemDetailForm = this.formBuilder.group({
       'email': this.itemDetailMenu.email

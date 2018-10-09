@@ -10,7 +10,7 @@ export class SearchService {
   item: Object;
   currentSearch: Search = new Search();
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   storeSeachResult(date: Date, searchResult: Object, userSearch: string) {
     this.currentSearch = new Search(date, searchResult, userSearch);
@@ -20,12 +20,4 @@ export class SearchService {
   getStoredSearches() {
     return this.searchResults;
   }
-
-  searchByItemId(searchInteger): Object {
-    this.http.get('/viewItem/?id=' + searchInteger).subscribe(data => {
-      this.item = data;
-    });
-    return this.item;
-  }
-
 }
